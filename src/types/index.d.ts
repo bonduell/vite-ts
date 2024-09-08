@@ -16,7 +16,7 @@ export namespace UX_FW {
 
   interface IHtmlElementAttrs {
     id?: string;
-    textContent?: string;
+    innerText?: string;
     className?: string;
   }
 

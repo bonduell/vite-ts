@@ -18,7 +18,7 @@ const elements: UX_FW.IHtmlElement = {
         props: {
           style: {},
           attrs: {
-            textContent: 'Click Me',
+            innerText: 'Click Me',
             className: 'grid-area-body color-warning',
           },
           xs: {},
@@ -32,18 +32,18 @@ const elements: UX_FW.IHtmlElement = {
           style: {},
           attrs: {
             id: 'msg1',
-            textContent: 'Hello World',
+            innerText: 'Hello World',
             className: 'grid-area-header',
           },
         },
       },
       {
         id: 'msg2',
-        tag: 'span',
+        tag: 'div',
         props: {
           style: {},
           attrs: {
-            textContent: 'Nice to meet you!',
+            innerText: 'Nice to meet you!',
             className: 'grid-area-footer',
           },
           children: [],

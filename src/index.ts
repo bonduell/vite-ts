@@ -11,7 +11,7 @@ const element: UX_FW.IHtmlElement = {
   props: {
     style: {},
     attrs: {
-      textContent: 'Buddy!',
+      innerText: 'Buddy!',
       className: 'grid-area-footer color-warning',
     },
   },
@@ -33,13 +33,14 @@ function handleButtonClick(): void {
   if (btnStatus === 'clicked') {
     configButton.props.attrs.className = 'grid-area-body color-warning';
     configSpan.props.attrs.className = 'grid-area-footer';
-    configSpan.props.attrs.textContent = 'Nice to meet you!';
     btnStatus = 'none';
   } else {
     btnStatus = 'clicked';
     configButton.props.attrs.className = 'grid-area-body color-success';
     configSpan.props.attrs.className = 'grid-area-footer color-success';
-    configSpan.props.attrs.textContent = 'Nice to meet you again, ';
-    configSpan.props.children?.push(element);
+    if (!configSpan.props.children?.find(item => item.id === 'msg3')) {
+      configSpan.props.attrs.innerText = 'Nice to meet you again, ';
+      configSpan.props.children?.push(element);
+    }
   }
 }
