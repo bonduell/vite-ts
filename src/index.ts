@@ -20,24 +20,26 @@ const element: UX_FW.IHtmlElement = {
 const app = App.createApp(config);
 app.mount();
 
-const span = App.byId('msg2') as Component;
 const button = App.byId('btn1') as Component;
-
 button.on('click', handleButtonClick);
-
 let btnStatus: 'clicked' | 'none' = 'none';
+
+//@ts-ignore
+const configButton = config.elements.props.children[0];
+//@ts-ignore
+const configSpan = config.elements.props.children[2];
 
 function handleButtonClick(): void {
   if (btnStatus === 'clicked') {
-    button.props.attrs.className = 'grid-area-body color-warning';
-    span.props.attrs.className = 'grid-area-footer';
-    span.props.attrs.textContent = 'Nice to meet you!';
+    configButton.props.attrs.className = 'grid-area-body color-warning';
+    configSpan.props.attrs.className = 'grid-area-footer';
+    configSpan.props.attrs.textContent = 'Nice to meet you!';
     btnStatus = 'none';
   } else {
     btnStatus = 'clicked';
-    button.props.attrs.className = 'grid-area-body color-success';
-    span.props.attrs.className = 'grid-area-footer color-success';
-    span.props.attrs.textContent = 'Nice to meet you again, ';
-    span.props.children?.push(element);
+    configButton.props.attrs.className = 'grid-area-body color-success';
+    configSpan.props.attrs.className = 'grid-area-footer color-success';
+    configSpan.props.attrs.textContent = 'Nice to meet you again, ';
+    configSpan.props.children?.push(element);
   }
 }
