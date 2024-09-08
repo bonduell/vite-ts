@@ -1,9 +1,7 @@
 import { UX_FW } from '@/types';
 import { paramCase } from 'change-case';
-import Sanitizer from '@/framework/services/sanitizer';
+import sanitizer from '@/framework/services/sanitizer';
 import reactive from '@/framework/services/reactive';
-
-const sanitizer = new Sanitizer();
 
 export default class Component {
   readonly id: string;

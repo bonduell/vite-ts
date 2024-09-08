@@ -1,4 +1,4 @@
-export default class Sanitizer {
+export class Sanitizer {
   constructor() {
     // out of scope but required
   }
@@ -9,3 +9,7 @@ export default class Sanitizer {
     return !this.prohibitedTags.includes(tag);
   }
 }
+
+const sanitizer = new Sanitizer();
+
+export default sanitizer;

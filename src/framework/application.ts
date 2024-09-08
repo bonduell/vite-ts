@@ -1,6 +1,6 @@
 import { UX_FW } from '@/types';
 import Component from '@/framework/component';
-import LayoutService from '@/framework/services/layouts';
+import layoutService from '@/framework/services/layouts';
 import cssInjector from '@/framework/services/cssInjector';
 
 // Singleton
@@ -28,7 +28,6 @@ export default class App {
     return App.instance;
   }
 
-  private layoutService = new LayoutService();
   private $el = document.getElementById('root') as Element;
 
   private initApp(rootEl: UX_FW.IHtmlElement = App.elements): App {
@@ -41,6 +40,6 @@ export default class App {
     App.rootEl.render();
     this.$el.appendChild(App.rootEl.$el);
 
-    console.log('App successfully mounted : ', this.layoutService.screenSize);
+    console.log('App successfully mounted : ', layoutService.screenSize);
   }
 }
