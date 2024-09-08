@@ -8,7 +8,7 @@ export enum Thresholds {
 
 type IKeyOfThresholds = keyof typeof Thresholds;
 
-export default class LayoutService {
+export class LayoutService {
   constructor() {
     const thresholds = Object.keys(Thresholds).filter(key => !Number(key) && key !== '0') as Array<IKeyOfThresholds>;
     this.thresholds = thresholds.sort((a, b) => Thresholds[a] - Thresholds[b]);
@@ -51,3 +51,6 @@ export default class LayoutService {
     });
   }
 }
+
+const layoutService = new LayoutService();
+export default layoutService;
